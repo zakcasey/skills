@@ -4,7 +4,7 @@ description: Review today's Claude sessions in this repo (or every project with 
 disable-model-invocation: true
 ---
 
-A **retrospective** on one day of Zak's Claude sessions: what cost the most, and which changes to the setup (CLAUDE.md, skills, scripts, scheduled tasks, docs, memory, session habits) would stop it happening again. The nightly review (`amidae-nightly-review`) already writes decisions and memory, so this covers friction and cost only.
+A **retrospective** on one day of the user's Claude sessions: what cost the most, and which changes to the setup (CLAUDE.md, skills, scripts, scheduled tasks, docs, memory, session habits) would stop it happening again. If a nightly dream runs for the repo (the `setup-dreaming` skill in this repo), it already writes decisions and memory, so this covers friction and cost only.
 
 **Scope:** the repo you run it in, meaning sessions started in its folder or in its worktrees. Find the root with `git rev-parse --show-toplevel`; outside a git repo, use the working directory. Arguments, all optional, in any order:
 - a date (`2026-11-12`) to review that day instead of today;
@@ -14,7 +14,7 @@ Reports live in `~/.claude/end-of-day/reports/<repo folder name>/<YYYY-MM-DD>.md
 
 ## 1. Last time
 
-Read the most recent earlier report for the same scope, if there is one. For each fix Zak picked there, check whether it landed (file, script or task changed). Note any problem it targeted that showed up again today; that recurrence goes at the top of today's findings.
+Read the most recent earlier report for the same scope, if there is one. For each fix the user picked there, check whether it landed (file, script or task changed). Note any problem it targeted that showed up again today; that recurrence goes at the top of today's findings.
 
 ## 2. Digest
 
@@ -44,15 +44,15 @@ Before you report a finding that names a file, a script, a count or a missing fe
 
 ## 5. Report
 
-Write the report file, then give Zak the same content in chat:
+Write the report file, then give the user the same content in chat:
 
 1. **What cost the most:** three to five themes, each with the evidence that makes it concrete (session, time, numbers). Recurring problems from step 1 come first.
-2. **Fixes:** one numbered list Zak can answer item by item ("3 apply, 4 skip"). Each item is one fix: what changes, where, and which finding it answers. Group them under short headings, with skill candidates from 3b under their own **Skills** heading.
-3. **Habits:** at most three, about how Zak starts, splits or checks sessions, each tied to a cost seen today.
+2. **Fixes:** one numbered list the user can answer item by item ("3 apply, 4 skip"). Each item is one fix: what changes, where, and which finding it answers. Group them under short headings, with skill candidates from 3b under their own **Skills** heading.
+3. **Habits:** at most three, about how the user starts, splits or checks sessions, each tied to a cost seen today.
 4. **Keep:** what worked.
 
-Then stop and wait for his picks.
+Then stop and wait for the user's picks.
 
 ## 6. Apply
 
-Build a picked skill with the `writing-for-agents` skill's guidance, in the repo's `.claude/skills/` if it's about that repo, otherwise in `~/.claude/skills/`. Apply only the numbers Zak picked, within the repo's own rules (its CLAUDE.md and memory: who commits, who deploys, which files are his). Send independent fixes to parallel subagents when they touch separate files; do the rest yourself. Run the repo's checks (tests, tracker check, RUO check, `node --check`) after. Append to the report file which fixes were applied and anything left for Zak (restarts, commits, settings only he can change).
+Build a picked skill (with the `writing-for-agents` skill's guidance, if it is installed) in the repo's `.claude/skills/` if it's about that repo, otherwise in `~/.claude/skills/`. Apply only the numbers the user picked, within the repo's own rules (its CLAUDE.md and memory: who commits, who deploys, which files are theirs). Send independent fixes to parallel subagents when they touch separate files; do the rest yourself. Run the repo's checks (tests, linters, type checks, its own check scripts, `node --check` on edited JavaScript) after. Append to the report file which fixes were applied and anything left for the user (restarts, commits, settings only they can change).

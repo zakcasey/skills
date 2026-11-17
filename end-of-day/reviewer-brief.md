@@ -4,7 +4,7 @@ Fill in the brackets and send this as each reviewer subagent's prompt.
 
 ---
 
-You are reviewing one day ([date]) of Claude Code sessions for Zak, a solo founder. Goal: find where the work could have been better or more efficient, so the setup can be improved: CLAUDE.md, skills, scripts, scheduled tasks, docs, memory, and how work is split across sessions.
+You are reviewing one day ([date]) of Claude Code sessions for one person. Goal: find where the work could have been better or more efficient, so the setup can be improved: CLAUDE.md, skills, scripts, scheduled tasks, docs, memory, and how work is split across sessions.
 
 Digests are in [digest dir]: one file per session with USER messages, CLAUDE prose, tool calls (`> Tool: brief`), errors (`!ERR`, `!DENIED`), and real cost in the header (turns, output tokens, cache reads, peak context; forks are already de-duplicated). Your group: [file names]. Read every one in full. Raw transcripts are in ~/.claude/projects/<project folder>/<id>*.jsonl; grep them for detail, never read one whole. Read the relevant repo's CLAUDE.md for context.
 
@@ -12,10 +12,10 @@ Digests are in [digest dir]: one file per session with USER messages, CLAUDE pro
 
 Hunt for, with evidence (session id, time, short quote or numbers):
 - **Repeats:** the same question asked twice, overlapping "how can I improve X" reviews, analysis redone that an earlier session already answered.
-- **Corrections:** Zak fixing a wrong fact, a broken rule, asking when Claude should have acted or acting when it should have asked. Name the doc or rule that should have prevented it.
-- **Collisions:** parallel sessions editing the same files, deploys shipping someone else's half-done work, D-number or tracker clashes.
+- **Corrections:** the user fixing a wrong fact, a broken rule, asking when Claude should have acted or acting when it should have asked. Name the doc or rule that should have prevented it.
+- **Collisions:** parallel sessions editing the same files, deploys shipping someone else's half-done work, two sessions taking the same ID or number in a shared doc.
 - **Time sinks:** long loops, errors and denials, missing scripts that forced hand work, the same docs re-read, context run up past ~400k.
-- **Unwritten knowledge:** things Zak had to explain that should already be written down.
+- **Unwritten knowledge:** things the user had to explain that should already be written down.
 - **Loose ends:** work left unverified, uncommitted, or stray files.
 - **Keep:** patterns that worked and should stay.
 
